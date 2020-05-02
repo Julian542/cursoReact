@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Contador from './components/Contador';
 
 //Utilizando una funcion que nos llega por parametros
 class Titulo extends Component{
@@ -17,6 +18,7 @@ class Titulo extends Component{
     //esto es lo mismo que const mappedNumbers = this.props.arrayOfNumbers.map(this.props.multiply)
     return(
       <React.Fragment>
+        <p> {textoSegunBool} </p>
         <p>{mappedNumbers.join(', ')}</p>
         {title}
       </React.Fragment>
@@ -38,6 +40,7 @@ function App() {
             arrayOfNumbers = {[2,4,6,8]}
             multiply = { (number) => number *5 }
          ></Titulo>
+         <Contador></Contador>
       </header>
     </div>
   );
