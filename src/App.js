@@ -32,12 +32,15 @@ Titulo.defaultProps = {
 }
 
 function App() {
+  const numbers = [1,1,3,4,5];
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-         <Conditional></Conditional>
-      </header>
+      <h4>Trabajando con Listas y el Key</h4>
+      {
+        numbers.map( (number,index) =>{
+          return <p key={index}> Soy el numero {number}</p>
+        })
+      }
     </div>
   );
 }
