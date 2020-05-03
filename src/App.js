@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Contador from './components/Contador';
+import Conditional from './components/Conditional';
 
 //Utilizando una funcion que nos llega por parametros
 class Titulo extends Component{
@@ -35,12 +36,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-         <Titulo 
-            isActivated = {true}
-            arrayOfNumbers = {[2,4,6,8]}
-            multiply = { (number) => number *5 }
-         ></Titulo>
-         <Contador></Contador>
+         <Conditional></Conditional>
       </header>
     </div>
   );
