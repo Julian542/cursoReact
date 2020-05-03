@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Contador from './components/Contador';
 import Conditional from './components/Conditional';
+import cars from './data/cars.json'
 
 //Utilizando una funcion que nos llega por parametros
 class Titulo extends Component{
@@ -36,11 +37,19 @@ function App() {
   return (
     <div className="App">
       <h4>Trabajando con Listas y el Key</h4>
+      <ul>
       {
-        numbers.map( (number,index) =>{
-          return <p key={index}> Soy el numero {number}</p>
-        })
+        cars.map( car => {
+          return(
+          <li key={car.id}> 
+            <p><strong>Nombre:</strong>{car.name}</p>
+            <p><strong>Marca: </strong>{car.company}</p>
+          </li>
+          )
+        }
+        )
       }
+      </ul>
     </div>
   );
 }
