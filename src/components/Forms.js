@@ -8,13 +8,18 @@ class Forms extends Component{
         const twitter = document.getElementById('twitter').value;
         console.log({name,twitter});
     }
+
+    handleChange(e){
+        console.log('handleChange');
+        console.log(e.target.checked);
+    }
     render(){
         return(
             <React.Fragment>
                 <h4>Formularios</h4>
-                <form>
+                <form onSubmit={this.handleClick}>
                     <p>
-                        <label>Nombre: </label>
+                        <label htmlFor="name">Nombre: </label>
                         <input
                         id='name'
                         name='userName'
@@ -22,14 +27,20 @@ class Forms extends Component{
                         />
                     </p>
                     <p>
-                    <label>Twitter: </label>
+                    <label htmlFor="twitter">Twitter: </label>
                         <input
                         id='twitter'
                         name='twitterAccount'
                         placeholder='Introduce aqui tu nombre de usuario en Twitter'
                         />
                     </p>
-                    <button onClick={this.handleClick} >Enviar</button>
+                    <p>
+                        <label>
+                            <input onChange={this.handleChange} type='checkbox'/>
+                            Acepta los terminos y condiciones
+                        </label>
+                    </p>
+                    <button>Enviar</button>
                 </form>
             </React.Fragment>
         );
