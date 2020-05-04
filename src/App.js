@@ -4,6 +4,7 @@ import './App.css';
 import Contador from './components/Contador';
 import Conditional from './components/Conditional';
 import cars from './data/cars.json'
+import Forms from './components/Forms';
 
 //Utilizando una funcion que nos llega por parametros
 class Titulo extends Component{
@@ -47,12 +48,7 @@ class App extends Component {
   render(){
   return (
      <div>
-      <h4>Trabajando con Eventos Soportados</h4>
-      <div
-      onMouseMove={this.handleMouseMove}
-      style={{border:'1px solid #000', marginTop:10, padding:10}}>
-        <p>{this.state.mouseX}, {this.state.mouseY}</p>
-      </div>
+       <Forms/>
     </div>
   );
   }
