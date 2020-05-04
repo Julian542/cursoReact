@@ -5,6 +5,7 @@ import Contador from './components/Contador';
 import Conditional from './components/Conditional';
 import cars from './data/cars.json'
 import Forms from './components/Forms';
+import Children from './components/Children';
 
 //Utilizando una funcion que nos llega por parametros
 class Titulo extends Component{
@@ -32,8 +33,6 @@ class Titulo extends Component{
 Titulo.defaultProps = {
   title:<h1>Hola gente!</h1>   
 }
-
-
 class App extends Component {   
    
   constructor(){
@@ -48,7 +47,7 @@ class App extends Component {
   render(){
   return (
      <div>
-       <Forms/>
+        <Children/>
     </div>
   );
   }

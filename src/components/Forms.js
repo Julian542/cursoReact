@@ -2,16 +2,24 @@ import React, { Component } from 'react';
 
 class Forms extends Component{
 
-    handleClick (e){
-        e.preventDefault();
-        const name = document.getElementById('name').value;
-        const twitter = document.getElementById('twitter').value;
-        console.log({name,twitter});
+    constructor(){
+        super();
+        this.state = {
+            name:'Nombre',
+            twitter:'@',
+            inputTerm:true
+        }
     }
 
-    handleChange(e){
+    handleClick (e){
+        e.preventDefault();
+        console.log(this.state);
+    }
+
+    handleChange = (e) =>{
         console.log('handleChange');
         console.log(e.target.checked);
+        this.setState( {inputTerm : e.target.checked})
     }
     render(){
         return(
@@ -23,7 +31,8 @@ class Forms extends Component{
                         <input
                         id='name'
                         name='userName'
-                        placeholder='Introduce aqui tu nombre'
+                        value={this.state.name}
+                        onChange={ e => this.setState({name: e.target.value})}
                         />
                     </p>
                     <p>
@@ -31,12 +40,13 @@ class Forms extends Component{
                         <input
                         id='twitter'
                         name='twitterAccount'
-                        placeholder='Introduce aqui tu nombre de usuario en Twitter'
+                        value={this.state.twitter}
+                        onChange={e => this.setState({twitter: e.target.value})}
                         />
                     </p>
                     <p>
                         <label>
-                            <input onChange={this.handleChange} type='checkbox'/>
+                            <input onChange={this.handleChange} type='checkbox' checked={this.state.inputTerm}/>
                             Acepta los terminos y condiciones
                         </label>
                     </p>
