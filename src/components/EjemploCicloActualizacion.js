@@ -29,6 +29,23 @@ class AnimalImage extends PureComponent { //PureComponent hace una revision supe
             easing:'ease'
         });
     }
+    
+    //Ahora vamos a ver el ultimo metodo del ciclo actualizacion, el cual se ejecuta posterior al render
+    componentDidUpdate(prevProps,prevState){
+        console.log('4to en ejecutarse');
+        const img = document.querySelector('img');
+        img.animate([
+            {
+                filter:'blur(2px)'
+            },{
+                filter:'blur(0px)'
+            }   
+        ],{
+            duration:1500,
+            easing:'ease'
+        });
+        console.log('from img element', {alt: img.alt});
+    }
 
     render() {
         return (
