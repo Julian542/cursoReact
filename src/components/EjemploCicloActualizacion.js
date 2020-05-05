@@ -17,6 +17,14 @@ class AnimalImage extends Component{
             this.setState({src: ANIMAL_IMAGES[nextProps.animal]})
     }
 
+    shouldComponentUpdate(nextProps){
+        console.log('Cuando se ejecuta?');
+        console.log(nextProps);
+        /*hay que retornar booleano, si el metodo no existe por defecto devuelve true lo q causa que siempre
+          se renderice el componente*/
+        return this.props.animal !== nextProps.animal //devuelve TRUE solo si las nuevas props son diferentes a las anteriores
+    }
+
     render(){
         return(
             <div>
@@ -41,7 +49,7 @@ class EjemploCicloActualizacion extends Component{
     _renderAnimalButton = (animal) => {
         return(
             <button
-                disabled={ animal === this.state.animal} 
+                //disabled={ animal === this.state.animal} 
                 key={animal} onClick={() => this.setState({animal})}> Ver {animal} </button>
         );
     }
@@ -49,7 +57,7 @@ class EjemploCicloActualizacion extends Component{
     render(){
         return(
             <React.Fragment>
-                <h4>Ciclo de Actualizacion, ejemplo de: Component WillReceiveProps</h4>
+                <h4>Ciclo de Actualizacion, ejemplo de: Component WillReceiveProps y ShouldComponentUpdate</h4>
                 {ANIMALS.map( this._renderAnimalButton)}
                 <AnimalImage animal={this.state.animal}/>
             </React.Fragment>
