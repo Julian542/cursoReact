@@ -7,6 +7,7 @@ import cars from './data/cars.json'
 import Forms from './components/Forms';
 import Children from './components/Children';
 import ComponenteDidMount from './components/ComponenteDidMount';
+import FetchExample from './components/FetchExample';
 
 //Utilizando una funcion que nos llega por parametros
 class Titulo extends Component{
@@ -48,7 +49,7 @@ class App extends Component {
   render(){
   return (
      <div>
-        <ComponenteDidMount/>
+       <FetchExample/>
     </div>
   );
   }

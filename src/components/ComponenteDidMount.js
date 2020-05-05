@@ -5,11 +5,13 @@ class ComponenteDidMount extends Component {
         super(props);
         this.state = { scroll: 0 }
     }
-    componentDidMount() {
+   /* componentDidMount() {
         document.addEventListener('scroll', () => {
             this.setState({ scroll: window.scrollY })
         });
     }
+    Dejo comentado el componente porque no se ha eliminado la suscripcion al evento
+    */ 
     render() {
         console.log('se ejecuta el render');
         return (
