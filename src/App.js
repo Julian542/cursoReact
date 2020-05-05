@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import EjemploCicloActualizacion from './components/EjemploCicloActualizacion';
+import EjemploCicloDesmontaje from './components/EjemploCicloDesmontaje';
 
 
 //Utilizando una funcion que nos llega por parametros
@@ -44,7 +44,7 @@ class App extends Component {
   render(){
   return (
      <div>
-       <EjemploCicloActualizacion/>
+       <EjemploCicloDesmontaje/>
     </div>
   );
   }
