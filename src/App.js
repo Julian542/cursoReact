@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Contador from './components/Contador';
-import Conditional from './components/Conditional';
-import cars from './data/cars.json'
-import Forms from './components/Forms';
-import Children from './components/Children';
-import ComponenteDidMount from './components/ComponenteDidMount';
-import FetchExample from './components/FetchExample';
+import EjemploCicloActualizacion from './components/EjemploCicloActualizacion';
+
 
 //Utilizando una funcion que nos llega por parametros
 class Titulo extends Component{
@@ -49,7 +44,7 @@ class App extends Component {
   render(){
   return (
      <div>
-       <FetchExample/>
+       <EjemploCicloActualizacion/>
     </div>
   );
   }
