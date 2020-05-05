@@ -17,6 +17,19 @@ class AnimalImage extends PureComponent { //PureComponent hace una revision supe
         this.setState({ src: ANIMAL_IMAGES[nextProps.animal] })
     }
 
+    componentWillUpdate(nextProps,nextState){
+        // ComponentWillUpdate se utiliza para manejar nuestro arbol de elementos justo antes de renderizar
+        const img = document.querySelector('img');
+        img.animate([{
+            filter:'blur(0px)'
+        },{
+            filter:'blur(2px)'
+        }],{
+            duration:500,
+            easing:'ease'
+        });
+    }
+
     render() {
         return (
             <div>
