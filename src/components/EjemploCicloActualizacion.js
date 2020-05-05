@@ -1,32 +1,24 @@
-import React, { Component } from 'react';
+import React, { Component, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 const ANIMAL_IMAGES = {
-    panda:'https://goo.gl/oNbtoq',
-    cat :'https://goo.gl/PoQQXb',
-    dolphin:'https://goo.gl/BbiKCd'
-    
+    panda: 'https://goo.gl/oNbtoq',
+    cat: 'https://goo.gl/PoQQXb',
+    dolphin: 'https://goo.gl/BbiKCd'
+
 }
 
 const ANIMALS = Object.keys(ANIMAL_IMAGES);
 
-class AnimalImage extends Component{
-    state = { src : ANIMAL_IMAGES[this.props.animal]}
+class AnimalImage extends PureComponent { //PureComponent hace una revision superficial de la pagina y detecta si hay que hacer un renderizado nuevo o no
+    state = { src: ANIMAL_IMAGES[this.props.animal] }
 
-    componentWillReceiveProps (nextProps){ //este metodo nos ayuda a actualizar el componente justo cuando le van a llegar nuevas props
-            this.setState({src: ANIMAL_IMAGES[nextProps.animal]})
+    componentWillReceiveProps(nextProps) { //este metodo nos ayuda a actualizar el componente justo cuando le van a llegar nuevas props
+        this.setState({ src: ANIMAL_IMAGES[nextProps.animal] })
     }
 
-    shouldComponentUpdate(nextProps){
-        console.log('Cuando se ejecuta?');
-        console.log(nextProps);
-        /*hay que retornar booleano, si el metodo no existe por defecto devuelve true lo q causa que siempre
-          se renderice el componente*/
-        return this.props.animal !== nextProps.animal //devuelve TRUE solo si las nuevas props son diferentes a las anteriores
-    }
-
-    render(){
-        return(
+    render() {
+        return (
             <div>
                 <p>Selected {this.props.animal}</p>
                 <img
@@ -39,27 +31,27 @@ class AnimalImage extends Component{
     }
 }
 
-AnimalImage.propTypes ={
+AnimalImage.propTypes = {
     animal: PropTypes.oneOf(ANIMALS)
 }
 
-class EjemploCicloActualizacion extends Component{
-    state = {animal:'panda'}
+class EjemploCicloActualizacion extends Component {
+    state = { animal: 'panda' }
 
     _renderAnimalButton = (animal) => {
-        return(
+        return (
             <button
                 //disabled={ animal === this.state.animal} 
-                key={animal} onClick={() => this.setState({animal})}> Ver {animal} </button>
+                key={animal} onClick={() => this.setState({ animal })}> Ver {animal} </button>
         );
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <React.Fragment>
                 <h4>Ciclo de Actualizacion, ejemplo de: Component WillReceiveProps y ShouldComponentUpdate</h4>
-                {ANIMALS.map( this._renderAnimalButton)}
-                <AnimalImage animal={this.state.animal}/>
+                {ANIMALS.map(this._renderAnimalButton)}
+                <AnimalImage animal={this.state.animal} />
             </React.Fragment>
         )
     }
