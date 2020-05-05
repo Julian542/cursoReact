@@ -6,6 +6,7 @@ import Conditional from './components/Conditional';
 import cars from './data/cars.json'
 import Forms from './components/Forms';
 import Children from './components/Children';
+import ComponenteDidMount from './components/ComponenteDidMount';
 
 //Utilizando una funcion que nos llega por parametros
 class Titulo extends Component{
@@ -47,7 +48,7 @@ class App extends Component {
   render(){
   return (
      <div>
-        <Children/>
+        <ComponenteDidMount/>
     </div>
   );
   }
